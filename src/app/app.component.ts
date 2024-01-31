@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { StudentComponent } from "./student/student.component";
+import { ProjectComponent } from './project/project.component';
+import { CourseComponent } from './course/course.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [CommonModule, RouterOutlet, StudentComponent, ProjectComponent, CourseComponent]
 })
-export class AppComponent {
-  title = 'Angular-exercise-1';
-}
+
+export class AppComponent {}
