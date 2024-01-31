@@ -57,8 +57,8 @@
 
 <h1>Courses</h1>
 <div class="inputDiv">
-    <input placeholder="Student's name" #name type="text">
-    <button (click)="addNewCourse(name.value)">Add Student</button>
+    <input placeholder="Course's name" #name type="text">
+    <button (click)="addNewCourse(name.value)">Add Course</button>
   </div>
   @for (course of courses; track course.id) {
     <h2>{{course.name}}</h2>

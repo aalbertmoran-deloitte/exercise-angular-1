@@ -57,8 +57,8 @@
 
 <h1>Projects</h1>
 <div class="inputDiv">
-    <input placeholder="Student's name" #name type="text">
-    <button (click)="addNewProject(name.value)">Add Student</button>
+    <input placeholder="Project's name" #name type="text">
+    <button (click)="addNewProject(name.value)">Add project</button>
   </div>
   @for (project of projects; track project.id) {
     <h2>{{project.name}}</h2>
