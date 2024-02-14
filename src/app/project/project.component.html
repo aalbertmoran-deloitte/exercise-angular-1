@@ -52,14 +52,27 @@
       display: flex;
       flex-direction: column;
     }
+
+    .success{
+      color: green;
+    }
+  
   
   </style>
 
 <h1>Projects</h1>
-<div class="inputDiv">
-    <input placeholder="Project's name" #name type="text">
-    <button (click)="addNewProject(name.value)">Add project</button>
-  </div>
+<form class="inputDiv" (submit)="addNewProject(name.value, $event, name)">
+    <input id="projectName" placeholder="Project's name" #name type="text">
+    <button type="submit">Add Project</button>
+  </form>
+<form class="inputDiv" (submit)="updateProject(nameUpdate, $event)">
+    <p>Update project</p>
+    <input id="projectNameUpdate" placeholder="Project's name" #nameUpdate type="text">
+    <button type="submit">Update Project</button>
+  </form>
+<form class="inputDiv" (submit)="deleteProject($event)">
+    <button type="submit">Delete Project</button>
+  </form>
   @for (project of projects; track project.id) {
-    <h2>{{project.name}}</h2>
+    <h2 [class]="project?.status ? 'success' : 'no'" (click)="selectProject(project.id, $event, nameUpdate)">{{project.name}}</h2>
   }

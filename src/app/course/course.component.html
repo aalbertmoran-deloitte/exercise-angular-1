@@ -52,14 +52,27 @@
       display: flex;
       flex-direction: column;
     }
+
+    .success{
+      color: green;
+    }
+  
   
   </style>
 
 <h1>Courses</h1>
-<div class="inputDiv">
-    <input placeholder="Course's name" #name type="text">
-    <button (click)="addNewCourse(name.value)">Add Course</button>
-  </div>
+<form class="inputDiv" (submit)="addNewCourse(name.value, $event, name)">
+    <input id="courseName" placeholder="Course's name" #name type="text">
+    <button type="submit">Add Course</button>
+  </form>
+<form class="inputDiv" (submit)="updateCourse(nameUpdate, $event)">
+    <p>Update course</p>
+    <input id="courseNameUpdate" placeholder="Course's name" #nameUpdate type="text">
+    <button type="submit">Update Course</button>
+  </form>
+<form class="inputDiv" (submit)="deleteCourse($event)">
+    <button type="submit">Delete Course</button>
+  </form>
   @for (course of courses; track course.id) {
-    <h2>{{course.name}}</h2>
+    <h2 [class]="course?.status ? 'success' : 'no'" (click)="selectCourse(course.id, $event, nameUpdate)">{{course.name}}</h2>
   }
