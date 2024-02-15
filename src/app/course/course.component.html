@@ -1,78 +1,18 @@
-<style>
-    h1 {
-      font-size: 3.125rem;
-      color: var(--gray-900);
-      font-weight: 500;
-      margin: 0;
-      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol";
-    }
-  
-    p {
-      margin: 0;
-      color: var(--gray-700);
-    }
-  
-    main {
-      width: 100%;
-      min-height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      box-sizing: inherit;
-      position: relative;
-    }
-  
-    .content {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1200px;
-      margin-bottom: 3rem;
-    }
-  
-    .content h1 {
-      margin-top: 1.75rem;
-    }
-  
-    .content p {
-      margin-top: 1.5rem;
-    }
-  
-    .items {
-      padding: 0 7%;
-      border: 10px midnightblue solid;
-      border-radius: 25px;
-      min-height: 750px;
-    }
-  
-    .inputDiv {
-      display: flex;
-      flex-direction: column;
-    }
 
-    .success{
-      color: green;
-    }
-  
-  
-  </style>
-
-<h1>Courses</h1>
+<h1 class="title">Courses</h1>
 <form class="inputDiv" (submit)="addNewCourse(name.value, $event, name)">
     <input id="courseName" placeholder="Course's name" #name type="text">
     <button type="submit">Add Course</button>
   </form>
 <form class="inputDiv" (submit)="updateCourse(nameUpdate, $event)">
-    <p>Update course</p>
+    <label>Update course</label>
     <input id="courseNameUpdate" placeholder="Course's name" #nameUpdate type="text">
     <button type="submit">Update Course</button>
   </form>
-<form class="inputDiv" (submit)="deleteCourse($event)">
-    <button type="submit">Delete Course</button>
+  <form class="inputDiv" (submit)="deleteCourse($event, nameUpdate)">
+    <button class="delete" type="submit">Delete Course</button>
   </form>
+  <hr>
   @for (course of courses; track course.id) {
     <h2 [class]="course?.status ? 'success' : 'no'" (click)="selectCourse(course.id, $event, nameUpdate)">{{course.name}}</h2>
   }

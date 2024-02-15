@@ -30,13 +30,14 @@ export class StudentComponent {
     nameUpdate.value = ''
   }
   
-  deleteStudent(event: Event){
+  deleteStudent(event: Event, nameUpdate: HTMLInputElement){
     event.preventDefault();
     
     this.students = this.students.filter(el => el.status == false);
     for (let index = 0; index < this.students.length; index++) {
       this.students[index].id = index;
     }
+    nameUpdate.value = ''
   }
 
   selectStudent(id: number, event: Event, inputName: HTMLInputElement) {

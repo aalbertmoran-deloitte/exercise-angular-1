@@ -27,13 +27,15 @@ export class ProjectComponent {
     nameUpdate.value = ''
   }
   
-  deleteProject(event: Event){
+  deleteProject(event: Event, nameUpdate: HTMLInputElement){
     event.preventDefault();
     
     this.projects = this.projects.filter(el => el.status == false);
     for (let index = 0; index < this.projects.length; index++) {
       this.projects[index].id = index;
     }
+
+    nameUpdate.value = '';
   }
 
   selectProject(id: number, event: Event, inputName: HTMLInputElement) {

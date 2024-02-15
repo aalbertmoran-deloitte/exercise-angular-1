@@ -27,13 +27,15 @@ export class CourseComponent {
     nameUpdate.value = ''
   }
   
-  deleteCourse(event: Event){
+  deleteCourse(event: Event, nameUpdate: HTMLInputElement){
     event.preventDefault();
     
     this.courses = this.courses.filter(el => el.status == false);
     for (let index = 0; index < this.courses.length; index++) {
       this.courses[index].id = index;
     }
+
+    nameUpdate.value = '';
   }
 
   selectCourse(id: number, event: Event, inputName: HTMLInputElement) {
