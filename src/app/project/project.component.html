@@ -1,10 +1,10 @@
-
-<h1 class="title">Projects</h1>
-<form class="inputDiv" (submit)="addNewProject(name.value, $event, name)">
+<div class="card">
+  <h1 class="title">Projects</h1>
+  <form class="inputDiv" (submit)="addNewProject(name.value, $event, name)">
     <input id="projectName" placeholder="Project's name" #name type="text">
     <button type="submit">Add Project</button>
   </form>
-<form class="inputDiv" (submit)="updateProject(nameUpdate, $event)">
+  <form class="inputDiv" (submit)="updateProject(nameUpdate, $event)">
     <label>Update project</label>
     <input id="projectNameUpdate" placeholder="Project's name" #nameUpdate type="text">
     <button type="submit">Update Project</button>
@@ -16,3 +16,4 @@
   @for (project of projects; track project.id) {
     <h2 [class]="project?.status ? 'success' : 'no'" (click)="selectProject(project.id, $event, nameUpdate)">{{project.name}}</h2>
   }
+</div>

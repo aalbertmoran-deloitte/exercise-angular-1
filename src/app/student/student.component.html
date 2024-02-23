@@ -1,20 +1,21 @@
-
-<h1 class="title">Students</h1>
-<div class="formContainer">  
-  <form class="inputDiv" (submit)="addNewStudent(name.value, $event, name)">
-    <input id="studentName" placeholder="Student's name" #name type="text">
-    <button type="submit">Add Student</button>
-  </form>
-  <form class="inputDiv" (submit)="updateStudent(nameUpdate, $event)">
-    <label>Update student</label>
-    <input id="studentNameUpdate" placeholder="Student's name" #nameUpdate type="text">
-    <button type="submit">Update Student</button>
-  </form>
-  <form class="inputDiv" (submit)="deleteStudent($event, nameUpdate)">
-    <button class="delete" type="submit">Delete Student</button>
-  </form>
-</div>
-<hr>
+<div class="card">
+  <h1 class="title">Students</h1>
+  <div class="formContainer">  
+    <form class="inputDiv" (submit)="addNewStudent(name.value, $event, name)">
+      <input id="studentName" placeholder="Student's name" #name type="text">
+      <button type="submit">Add Student</button>
+    </form>
+    <form class="inputDiv" (submit)="updateStudent(nameUpdate, $event)">
+      <label>Update student</label>
+      <input id="studentNameUpdate" placeholder="Student's name" #nameUpdate type="text">
+      <button type="submit">Update Student</button>
+    </form>
+    <form class="inputDiv" (submit)="deleteStudent($event, nameUpdate)">
+      <button class="delete" type="submit">Delete Student</button>
+    </form>
+  </div>
+  <hr>
   @for (student of students; track student.id) {
     <h2 [class]="student?.status ? 'success' : 'no'" (click)="selectStudent(student.id, $event, nameUpdate)">{{student.name}}</h2>
   }
+</div>

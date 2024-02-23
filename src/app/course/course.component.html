@@ -1,10 +1,11 @@
+<div class="card">
 
-<h1 class="title">Courses</h1>
-<form class="inputDiv" (submit)="addNewCourse(name.value, $event, name)">
+  <h1 class="title">Courses</h1>
+  <form class="inputDiv" (submit)="addNewCourse(name.value, $event, name)">
     <input id="courseName" placeholder="Course's name" #name type="text">
     <button type="submit">Add Course</button>
   </form>
-<form class="inputDiv" (submit)="updateCourse(nameUpdate, $event)">
+  <form class="inputDiv" (submit)="updateCourse(nameUpdate, $event)">
     <label>Update course</label>
     <input id="courseNameUpdate" placeholder="Course's name" #nameUpdate type="text">
     <button type="submit">Update Course</button>
@@ -16,3 +17,4 @@
   @for (course of courses; track course.id) {
     <h2 [class]="course?.status ? 'success' : 'no'" (click)="selectCourse(course.id, $event, nameUpdate)">{{course.name}}</h2>
   }
+</div>
